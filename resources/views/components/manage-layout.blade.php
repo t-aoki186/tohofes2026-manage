@@ -26,11 +26,11 @@
 
             <nav class="header__nav nav" id="js-nav">
                 <ul class="nav__items nav-items">
-                    <li class="nav-items__item"><a href="">ホーム</a></li>
-                    <li class="nav-items__item"><a href="">お問い合わせ確認</a></li>
-                    <li class="nav-items__item"><a href="">参加団体投稿</a></li>
-                    <li class="nav-items__item"><a href="">お知らせ投稿</a></li>
-                    <li class="nav-items__item"><a href="">ブログ投稿</a></li>
+                    <li class="nav-items__item"><a href="{{ route('manage.index') }}">ホーム</a></li>
+                    <li class="nav-items__item"><a href="{{ route('manage.inquiry') }}">お問い合わせ確認</a></li>
+                    <li class="nav-items__item"><a href="{{ route('manage.post.organization') }}">参加団体投稿</a></li>
+                    <li class="nav-items__item"><a href="{{ route('manage.post.blog') }}">ブログ投稿</a></li>
+                    <li class="nav-items__item"><a href="{{ route('manage.post.news') }}">お知らせ投稿</a></li>
                 </ul>
             </nav>
 
