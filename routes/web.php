@@ -6,6 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/manage', function() {
-    return view('manage.main');
+Route::get('/manage', function () {
+    return view('manage.index');
 });
