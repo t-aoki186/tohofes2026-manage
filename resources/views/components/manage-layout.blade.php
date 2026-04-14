@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
-
+    <link rel="stylesheet" href="https://cdn.atserver186.jp/libs/fontawesome/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -19,7 +20,7 @@
     <header class="fixed top-0 right-0 left-0 z-20 border border-black/10 bg-white/80 backdrop-blur-md h-15">
         <div class="header__inner">
             <h1 class="header__title header-title">
-                <a href="#">
+                <a href="{{ route('manage.index') }}">
                     <img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" alt="ATSERVERロゴ" class="h-10 w-auto rounded-xl" />
                 </a>
             </h1>
@@ -42,7 +43,7 @@
         </div>
     </header>
     <!--e:header-->
-    <main class="mt-15">
+    <main class="mt-15 mr-1 ml-1 min-h-screen">
         {{ $slot }}
     </main>
 </body>
