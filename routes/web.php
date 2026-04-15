@@ -1,31 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// コントローラーをインポート
+use App\Http\Controllers\Manage\PostController;
 
 Route::get('/', function () {
     return view('index');
 });
 
-// prefix('manage') と name('manage.') のグループの中にすべて入れます
 Route::prefix('manage')->name('manage.')->group(function () {
 
-    // これで URL: /manage , 名前: manage.index になります
     Route::get('/', function () {
         return view('manage.index');
     })->name('index');
 
-    // お問い合わせ確認 (URL: /manage/inquiry , 名前: manage.inquiry)
+    // お問い合わせ確認
     Route::get('/inquiry', function () {
         return view('manage.inquiry.index');
     })->name('inquiry');
 
     // 投稿系 (post) のグループ
     Route::prefix('post')->name('post.')->group(function () {
-        // 名前は manage.post.news になります
-        Route::get('/news', function () {
-            return view('manage.post.news');
-        })->name('news');
 
+        // --- ニュース管理 ---
+        // 一覧表示
+        Route::get('/news', [PostController::class, 'newsIndex'])->name('news.index');
+        // 編集・新規作成画面（idは任意なので ? をつける）
+        Route::get('/news/edit/{id?}', [PostController::class, 'newsEdit'])->name('news.edit');
+        // 保存処理
+        Route::post('/news/store', [PostController::class, 'newsStore'])->name('news.store');
+
+        // --- その他（これらも今後コントローラー化していくと良いです） ---
         Route::get('/organization', function () {
             return view('manage.post.organization');
         })->name('organization');

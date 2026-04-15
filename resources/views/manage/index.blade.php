@@ -17,9 +17,7 @@
                 </a>
             </div>
             <div class="clock-setting-btn-item">
-                <a href="{{ route('manage.post.news') }}" class="dash-link cursor-pointer">
-                    <i class="fa-solid fa-circle-plus"></i>お知らせ投稿
-                </a>
+
             </div>
         </div>
     </section>
