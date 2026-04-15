@@ -2,7 +2,7 @@
     <x-slot:title>ニュース投稿</x-slot:title>
     <x-slot:pageTitle>ニュースをMarkdownで書く</x-slot:pageTitle>
 
-    <div class="ml-5 mr-5 h-screen">
+    <div class="pt-25 ml-5 mr-5 h-screen">
         <form method="POST">
             <!--s:タイトル入力-->
             <div class="mb-4">
@@ -26,6 +26,14 @@
                 <!--e:プレビュー-->
             </div>
             <!--e:本文入力/プレビュー-->
+            <!---->
+            <!--s:投稿/編集完了ボタン-->
+            <div class="mt-6 flex justify-end">
+                <button type="submit" class="bg-gray-600 text-white px-8 py-3 rounded-lg font-bold cursor-pointer hover:bg-gray-700">
+                    投稿/編集完了
+                </button>
+            </div>
+            <!--e:投稿/編集完了ボタン-->
         </form>
     </div>
 </x-manage-layout>
