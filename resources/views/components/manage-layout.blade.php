@@ -43,7 +43,7 @@
         </div>
     </header>
     <!--e:header-->
-    <main class="mt-15 mr-1 ml-1 min-h-screen">
+    <main class="mt-25 mr-1 ml-1 min-h-screen">
         {{ $slot }}
     </main>
 </body>

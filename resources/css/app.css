@@ -130,12 +130,10 @@ li {
     left: 0;
     top: 0;
     margin: 0;
-    width: 100%;
     height: 100vh;
     transform: translateX(100%);
     background-color: #fff;
     transition: ease 0.4s;
-
     display: flex;
 }
 
@@ -147,7 +145,6 @@ li {
         height: inherit;
         display: flex;
         justify-content: end;
-        width: 40%;
     }
 }
 
@@ -172,6 +169,7 @@ li {
     height: 100%;
     display: flex;
     align-items: center;
+    margin-right: 1.4rem;
 }
 
 @media screen and (min-width: 960px) {
@@ -293,4 +291,123 @@ li {
 
 .dash-link {
     text-decoration: none;
+}
+
+/*s:記事作成ページ*/
+.dash-md-preview h1,
+.dash-md-preview h2 {
+    margin-bottom: 1.1rem;
+    border-bottom: 1px solid var(--color-gray-400);
+}
+
+.dash-md-preview h1 {
+    padding-bottom: 0.2em;
+    font-size: 1.7em;
+}
+.dash-md-preview h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+}
+
+.dash-md-preview h3,
+.dash-md-preview h4,
+.dash-md-preview h5,
+.dash-md-preview h6 {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+.dash-md-preview h3 {
+    font-size: 1.3em;
+}
+
+.dash-md-preview h4 {
+    font-size: 1.1em;
+}
+.dash-md-preview h5 {
+    font-size: 1em;
+}
+
+.dash-md-preview h6 {
+    font-size: 0.9em;
+}
+
+.dash-md-preview p {
+    margin: 0;
+}
+
+.dash-md-preview code {
+    text-autospace: no-autospace;
+    padding: 0.2em 0.4em;
+    margin: 0 0.2em !important;
+    background-color: var(--color-gray-700);
+    font-size: 0.85em;
+    border-radius: 4px;
+    vertical-align: 0.08em;
+}
+
+.dash-md-preview pre {
+    text-autospace: no-autospace;
+    margin: 1.3rem 0;
+    background: var(--color-gray-900);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
+    word-break: normal;
+    word-wrap: normal;
+    display: flex;
+}
+
+.dash-md-preview pre code {
+    background: transparent;
+    padding: 10px;
+}
+
+.dash-md-preview a {
+    color: var(--color-blue-500);
+}
+
+.dash-md-preview li {
+    list-style: disc;
+    margin-left: 1.3em;
+}
+
+.dash-md-preview table {
+    margin: 1.2rem auto;
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    line-height: 1.5;
+    word-break: normal;
+    display: block;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dash-md-preview thead {
+    display: table-header-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.dash-md-preview tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: var(--color-gray-400);
+}
+
+.dash-md-preview th {
+    font-weight: 700;
+    background: var(--color-gray-900);
+    padding: 0.5rem;
+    border: 1px solid var(--color-gray-400);
+}
+
+.dash-md-preview blockquote {
+    margin: 1.3rem 0;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--color-gray-400);
+    display: block;
 }
