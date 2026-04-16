@@ -8,57 +8,96 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    private $jsonPath = 'json/news.json';
+    // --- 共通ロジック ---
 
-    // JSONを配列として取得する共通メソッド
-    private function getNewsData()
+    private function getJsonData($filename)
     {
-        if (!Storage::disk('public')->exists($this->jsonPath)) return [];
-        return json_decode(Storage::disk('public')->get($this->jsonPath), true) ?: [];
+        $path = "json/{$filename}.json";
+        if (!Storage::disk('public')->exists($path)) return [];
+        return json_decode(Storage::disk('public')->get($path), true) ?: [];
     }
 
-    // Page A: 記事一覧
-    public function newsIndex()
+    private function saveJsonData($filename, $request)
     {
-        $newsList = $this->getNewsData();
-        return view('manage.post.news_index', compact('newsList'));
+        $list = $this->getJsonData($filename);
+        $newData = $request->only(['id', 'title', 'heading', 'body', 'thumbnail', 'type', 'date']);
+
+        if ($request->filled('old_id')) {
+            $list = array_map(fn($item) => $item['id'] == $request->old_id ? $newData : $item, $list);
+        } else {
+            if (empty($newData['id'])) $newData['id'] = (string)time();
+            $list[] = $newData;
+        }
+        Storage::disk('public')->put("json/{$filename}.json", json_encode($list, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
 
-    // Page B: 編集・新規作成画面
-    public function newsEdit($id = null)
+    private function defaultData($type)
     {
-        $newsList = $this->getNewsData();
-        // IDに一致する記事を探す。なければ新規作成用の空配列
-        $target = collect($newsList)->firstWhere('id', $id) ?: [
+        return [
             'id' => '',
             'title' => '',
             'heading' => '',
             'body' => '',
             'thumbnail' => 'https://pic.atserver186.jp/img/tohofes/dev-test/sample-img/news-v4.webp',
-            'type' => 'news',
+            'type' => $type,
             'date' => now()->toIso8601String()
         ];
+    }
 
+    // --- News (ニュース) ---
+
+    public function newsIndex()
+    {
+        return view('manage.post.news_index', ['newsList' => $this->getJsonData('news')]);
+    }
+
+    public function newsEdit($id = null)
+    {
+        $target = collect($this->getJsonData('news'))->firstWhere('id', $id) ?: $this->defaultData('news');
         return view('manage.post.news_edit', compact('target', 'id'));
     }
 
-    // 保存処理
     public function newsStore(Request $request)
     {
-        $newsList = $this->getNewsData();
-        $newData = $request->only(['id', 'title', 'heading', 'body', 'thumbnail', 'type', 'date']);
+        $this->saveJsonData('news', $request);
+        return redirect()->route('manage.post.news.index')->with('status', '更新しました');
+    }
 
-        if ($request->filled('old_id')) {
-            // 編集：既存のIDを探して差し替える
-            $newsList = array_map(fn($item) => $item['id'] == $request->old_id ? $newData : $item, $newsList);
-        } else {
-            // 新規作成：IDを自動生成して追加（簡易的に現在時刻など）
-            if (empty($newData['id'])) $newData['id'] = (string)time();
-            $newsList[] = $newData;
-        }
+    // --- Blog (ブログ) ---
 
-        Storage::disk('public')->put($this->jsonPath, json_encode($newsList, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    public function blogIndex()
+    {
+        return view('manage.post.blog_index', ['newsList' => $this->getJsonData('blog')]);
+    }
 
-        return redirect()->route('manage.post.news.index')->with('status', '保存しました');
+    public function blogEdit($id = null)
+    {
+        $target = collect($this->getJsonData('blog'))->firstWhere('id', $id) ?: $this->defaultData('blog');
+        return view('manage.post.blog_edit', compact('target', 'id'));
+    }
+
+    public function blogStore(Request $request)
+    {
+        $this->saveJsonData('blog', $request);
+        return redirect()->route('manage.post.blog.index');
+    }
+
+    // --- Organization (参加団体) ---
+
+    public function orgIndex()
+    {
+        return view('manage.post.org_index', ['newsList' => $this->getJsonData('organization')]);
+    }
+
+    public function orgEdit($id = null)
+    {
+        $target = collect($this->getJsonData('organization'))->firstWhere('id', $id) ?: $this->defaultData('organization');
+        return view('manage.post.org_edit', compact('target', 'id'));
+    }
+
+    public function orgStore(Request $request)
+    {
+        $this->saveJsonData('organization', $request);
+        return redirect()->route('manage.post.organization.index');
     }
 }

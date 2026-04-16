@@ -21,22 +21,19 @@ Route::prefix('manage')->name('manage.')->group(function () {
 
     // 投稿系 (post) のグループ
     Route::prefix('post')->name('post.')->group(function () {
-
-        // --- ニュース管理 ---
-        // 一覧表示
+        // ニュース (既存)
         Route::get('/news', [PostController::class, 'newsIndex'])->name('news.index');
-        // 編集・新規作成画面（idは任意なので ? をつける）
         Route::get('/news/edit/{id?}', [PostController::class, 'newsEdit'])->name('news.edit');
-        // 保存処理
         Route::post('/news/store', [PostController::class, 'newsStore'])->name('news.store');
 
-        // --- その他（これらも今後コントローラー化していくと良いです） ---
-        Route::get('/organization', function () {
-            return view('manage.post.organization');
-        })->name('organization');
+        // ブログ
+        Route::get('/blog', [PostController::class, 'blogIndex'])->name('blog.index');
+        Route::get('/blog/edit/{id?}', [PostController::class, 'blogEdit'])->name('blog.edit');
+        Route::post('/blog/store', [PostController::class, 'blogStore'])->name('blog.store');
 
-        Route::get('/blog', function () {
-            return view('manage.post.blog');
-        })->name('blog');
+        // 参加団体説明
+        Route::get('/organization', [PostController::class, 'orgIndex'])->name('organization.index');
+        Route::get('/organization/edit/{id?}', [PostController::class, 'orgEdit'])->name('organization.edit');
+        Route::post('/organization/store', [PostController::class, 'orgStore'])->name('organization.store');
     });
 });

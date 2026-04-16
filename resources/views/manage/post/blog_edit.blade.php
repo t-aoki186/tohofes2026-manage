@@ -3,13 +3,13 @@
     <x-slot:pageTitle>ニュースをMarkdownで書く</x-slot:pageTitle>
 
     <div class="pt-25 ml-5 mr-5 h-screen">
-        <form action="{{ route('manage.post.news.store') }}" method="POST">
+        <form action="{{ route('manage.post.blog.store') }}" method="POST">
             @csrf
             {{-- 編集時は元のIDを保持、新規時は空 --}}
             <input type="hidden" name="old_id" value="{{ $id }}">
 
             {{-- 固定値（必要に応じて変更可能にする） --}}
-            <input type="hidden" name="type" value="news">
+            <input type="hidden" name="type" value="blog">
             <input type="hidden" name="heading" value="">
 
             <div class="grid grid-cols-3 gap-4 mb-4">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="mt-6 flex justify-between items-center">
-                <a href="{{ route('manage.post.news.index') }}" class="text-gray-400 hover:text-white transition">← 一覧に戻る</a>
+                <a href="{{ route('manage.post.blog.index') }}" class="text-gray-400 hover:text-white transition">← 一覧に戻る</a>
                 <button type="submit" class="bg-gray-600 text-white px-8 py-3 rounded-lg font-bold cursor-pointer hover:bg-gray-700 transition shadow-lg">
                     JSONを更新して公開
                 </button>
