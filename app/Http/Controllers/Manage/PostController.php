@@ -17,19 +17,43 @@ class PostController extends Controller
         return json_decode(Storage::disk('public')->get($path), true) ?: [];
     }
 
+    /*s:共通メソット*/
     private function saveJsonData($filename, $request)
     {
         $list = $this->getJsonData($filename);
-        $newData = $request->only(['id', 'title', 'heading', 'body', 'thumbnail', 'type', 'date']);
+        //
+        //基本項目(お知らせ/ブログ/参加団体共通
+        $baseData = $request->only(['id', 'title', 'heading', 'body', 'thumbnail', 'type', 'date']);
+        //
+        //参加団体専用の項目
+        if ($filename === 'organization') {
+            $extraData = $request->only(['category', 'location', 'twitter_id', 'schedule']);
+            $newData = array_merge($baseData, $extraData);
+        } else {
+            $newData = $baseData;
+        }
+        //
+        //更新/新規作成判定
+        // old_id が送信されている、かつ一覧の中にそのIDが存在する場合は「編集」
+        $isEdit = $request->filled('old_id') && collect($list)->contains('id', $request->old_id);
 
-        if ($request->filled('old_id')) {
+        if ($isEdit) {
+            // 編集処理
             $list = array_map(fn($item) => $item['id'] == $request->old_id ? $newData : $item, $list);
         } else {
-            if (empty($newData['id'])) $newData['id'] = (string)time();
+            // 新規作成処理
+            // 入力されたIDが空ならタイムスタンプで生成
+            if (empty($newData['id'])) {
+                $newData['id'] = (string)time();
+            }
+
+            // 念のため、既存のIDと被っていないかチェック（被っていたら上書きせず追加）
             $list[] = $newData;
         }
+
         Storage::disk('public')->put("json/{$filename}.json", json_encode($list, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
+
 
     private function defaultData($type)
     {
@@ -40,7 +64,11 @@ class PostController extends Controller
             'body' => '',
             'thumbnail' => 'https://pic.atserver186.jp/img/tohofes/dev-test/sample-img/news-v4.webp',
             'type' => $type,
-            'date' => now()->toIso8601String()
+            'date' => now()->toIso8601String(),
+            'category' => '',
+            'location' => '',
+            'orgDate' => '',
+            'schedule' => []
         ];
     }
 
@@ -84,20 +112,19 @@ class PostController extends Controller
 
     // --- Organization (参加団体) ---
 
+    // 参加団体 (Organization)
     public function orgIndex()
     {
         return view('manage.post.org_index', ['newsList' => $this->getJsonData('organization')]);
     }
-
     public function orgEdit($id = null)
     {
         $target = collect($this->getJsonData('organization'))->firstWhere('id', $id) ?: $this->defaultData('organization');
         return view('manage.post.org_edit', compact('target', 'id'));
     }
-
     public function orgStore(Request $request)
     {
         $this->saveJsonData('organization', $request);
-        return redirect()->route('manage.post.organization.index');
+        return redirect()->route('manage.post.organization.index')->with('status', '団体情報を更新しました');
     }
 }

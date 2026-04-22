@@ -22,6 +22,41 @@
                     <label class="text-gray-400 text-xs ml-2">サムネイルURL</label>
                     <input type="text" name="thumbnail" value="{{ $target['thumbnail'] }}" class="bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3">
                 </div>
+
+                <div class="mb-4 grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-gray-400 text-xs ml-2">カテゴリー</label>
+                        <input type="text" name="category" value="{{ $target['category'] ?? '' }}"
+                            class="bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3"
+                            placeholder="例: グッズ販売, 展示">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-gray-400 text-xs ml-2">場所（ブース番号など）</label>
+                        <input type="text" name="location" value="{{ $target['location'] ?? '' }}"
+                            class="bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3"
+                            placeholder="3-G">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="text-gray-400 text-xs ml-2">開催日 (例: 1, 2)</label>
+                    <input type="text" name="orgDate" value="{{ $target['orgDate'] }}" class="w-full bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3" placeholder="1, 2">
+                </div>
+
+                <div class="mb-6 bg-[#1e1f22] p-4 rounded-xl border border-gray-700">
+                    <label class="text-gray-400 text-sm font-bold block mb-3">タイムテーブル設定</label>
+                    <div id="schedule-container" class="space-y-3">
+                        @foreach($target['schedule'] ?? [] as $index => $sch)
+                        <div class="flex gap-2 schedule-row">
+                            <input type="text" name="schedule[{{ $index }}][day]" value="{{ $sch['day'] }}" placeholder="日" class="w-16 bg-[#2c2d30] text-white border border-gray-600 rounded-lg p-2 text-center">
+                            <input type="text" name="schedule[{{ $index }}][time]" value="{{ $sch['time'] }}" placeholder="10:30 ~ 11:30" class="flex-1 bg-[#2c2d30] text-white border border-gray-600 rounded-lg p-2">
+                            <button type="button" onclick="this.parentElement.remove()" class="text-red-500 px-2">✕</button>
+                        </div>
+                        @endforeach
+                    </div>
+                    <button type="button" id="add-schedule" class="mt-3 text-sm bg-gray-700 text-white px-4 py-1 rounded-lg hover:bg-gray-600 transition">
+                        ＋ 予定を追加
+                    </button>
+                </div>
             </div>
 
             <div class="mb-4">
