@@ -15,37 +15,141 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-[#202124]">
+<body>
     <!--s:header-->
-    <header class="fixed top-0 right-0 left-0 z-20 border border-black/10 bg-white/80 backdrop-blur-md h-15">
-        <div class="header__inner">
-            <h1 class="header__title header-title">
-                <a href="{{ route('manage.index') }}">
-                    <img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" alt="ATSERVERロゴ" class="h-10 w-auto rounded-xl" />
-                </a>
-            </h1>
-
-            <nav class="header__nav nav" id="js-nav">
-                <ul class="nav__items nav-items">
-                    <li class="nav-items__item"><a href="{{ route('manage.index') }}">ホーム</a></li>
-                    <li class="nav-items__item"><a href="{{ route('manage.inquiry') }}">お問い合わせ確認</a></li>
-                    <li class="nav-items__item"><a href="{{ route('manage.post.organization.index') }}">参加団体投稿</a></li>
-                    <li class="nav-items__item"><a href="{{ route('manage.post.blog.index') }}">ブログ投稿</a></li>
-                    <li class="nav-items__item"><a href="{{ route('manage.post.news.index') }}">お知らせ投稿</a></li>
-                </ul>
-            </nav>
-
-            <button class="header__hamburger hamburger" id="js-hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <div class="tab-nav-header">
+        <div class="img-hover-nav">
+            <a href="javascript:history.back();" class="tab-nav-back-btn" aria-label="閉じる">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
         </div>
+        <p class="nav-menu-title">タイトル</p>
+    </div>
     </header>
     <!--e:header-->
-    <main class="mr-1 ml-1 min-h-screen">
-        {{ $slot }}
+    <!---->
+    <!--s:sidebar-->
+    <aside class="sidebar-fixed">
+        <!--// 大きいの //-->
+        <ul class="sidebar-list">
+            <!--liにはclassを書かないので、sidebar-list liで指定-->
+            <li><a href="" class="sidebar-logo"><img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" class="sidebar-logo-img"></a></li>
+            <hr class="main-hr" style="margin: 0;">
+            <li><a href="{{ route('manage.index') }}"><i class="fas fa-home"></i><span class="sidebar-text">ホーム</span></a></li>
+            <li><a href="{{ route('manage.inquiry') }}"><i class="fa-solid fa-magnifying-glass"></i><span class="sidebar-text">お問い合わせ確認</span></a></li>
+            <li><a href="{{ route('manage.post.organization.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">参加団体記事</span></a></li>
+            <li><a href="{{ route('manage.post.blog.index') }}"><i class="fa-solid fa-message"></i><span class="sidebar-text">ブログ記事</span></a></li>
+            <li><a href="{{ route('manage.post.news.index') }}"><i class="fa-solid fa-user-group"></i><span class="sidebar-text">お知らせ</span></a></li>
+        </ul>
+    </aside>
+
+    <!--// 小きいの //-->
+    <aside class="sidebar-fixed-mini">
+        <ul class="sidebar-list-mini">
+            <!--liにはclassを書かないので、sidebar-list liで指定-->
+            <li><a href="" title="ホーム" class="sidebar-logo"><img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" class="sidebar-logo-img"></a></li>
+            <hr class="main-hr" style="margin: 0;">
+            <li><a href="" title="ホーム"><i class="fas fa-home"></i></a></li>
+            <li><a href="" title="検索"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+            <li><a href="" title="ブログ"><i class="fa-solid fa-newspaper"></i></a></li>
+            <li><a href="" title="つぶやき"><i class="fa-solid fa-message"></i></a></li>
+            <li><a href="" title="コミュニティー"><i class="fa-solid fa-user-group"></i></a></li>
+            <li><a href="" title="セーブ"><i class="fa-solid fa-bookmark"></i></a></li>
+            <hr class="main-hr" style="margin: 0;">
+            <li><a href="" title="新規投稿" class="sidebar-post-btn-mini"><i class="fas fa-plus"></i></a></li>
+            <li><a href="" title="通知"><i class="fas fa-bell"></i></a></li>
+            <li><a href="" title="ダッシュボード"><i class="fa-solid fa-gauge-simple-high"></i></a></li>
+            <li><a href="" title="ドライブ"><i class="fa-solid fa-hard-drive"></i></a></li>
+            <li><a href="" title="設定"><i class="fa-solid fa-gear"></i></a></li>
+        </ul>
+    </aside>
+    <!---->
+    <aside class="newsbar-fixed">
+        <ul class="newsbar-list">
+        </ul>
+        <hr class="main-hr">
+        <p class="newsbar-under-link-text">
+            <a href="" style="margin-right: 10px;" target="_blank">利用規約</a>|
+            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">プライバシーポリシー</a>|
+            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">Cookieのポリシー</a>|
+            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">APIについて</a>|
+            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">ヘルプ</a>|
+            <a id="inquiry-link" href="" style="margin-left: 10px;" target="_blank">
+                お問い合わせ
+            </a>
+            <br><br>
+            &copy; 2026 ATSERVER<br>
+            Comina UI
+        </p>
+    </aside>
+    <!--e:sidebar-->
+    <!---->
+    <!--s:bottom menu-->
+    <div class="bottom-nav">
+        &nbsp;
+        <a href=""><i class="fas fa-home"></i></a>
+        <a href=""><i class="fas fa-search"></i></a>
+        <a href=""><i class="fas fa-home"></i></a>
+        <a href=""><i class="fas fa-home"></i></a>
+        <a id="sidebar_btn"><i class="fas fa-bars"></i></a>
+        &nbsp;
+    </div>
+
+    <!-- サイドバー -->
+    <nav class="sidebar" id="sidebar">
+        <ul class="newsbar-list">
+            <!--検索フォーム(固定)-->
+            <div class="newsbar-search-container">
+                <form class="newsbar-search-form" action="" method="GET" onsubmit="return validateSearchForm()">
+                    <input class="search-box" type="text" id="searchTerm" name="q" placeholder="検索...">
+                    <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+
+            <br>
+            <hr class="blog-card-hr">
+        </ul>
+        <ul class="sidebar-list">
+            <!--liにはclassを書かないので、sidebar-list liで指定-->
+            <li><a href=""><i class="fa-solid fa-newspaper"></i><span>ブログ</span></a></li>
+            <li><a href=""><i class="fa-solid fa-message"></i><span>つぶやき</span></a></li>
+            <li><a href=""><i class="fa-solid fa-user-group"></i><span>コミュニティー</span></a></li>
+            <li><a href=""><i class="fa-solid fa-bookmark"></i><span>セーブ</span></a></li>
+            <hr>
+            <li><a href=""><i class="fa-solid fa-gauge-simple-high"></i><span>ダッシュボード</span></a></li>
+            <li><a href=""><i class="fa-solid fa-hard-drive"></i><span>ドライブ</span></a></li>
+            <li><a href=""><i class="fa-solid fa-gear"></i><span>設定</span></a></li>
+        </ul>
+
+        <hr class="blog-card-hr">
+
+        <!--// 規約・権利表示 //-->
+        <p class="newsbar-under-link-text">
+            <a href="#" style="margin-right: 10px;">利用規約</a>|
+            <a href="#" style="margin-right: 10px; margin-left: 10px;">プライバシーポリシー</a>|
+            <a href="#" style="margin-right: 10px; margin-left: 10px;">Cookieのポリシー</a>|
+            <a href="#" style="margin-right: 10px; margin-left: 10px;">APIについて</a>|
+            <a href="#" style="margin-right: 10px; margin-left: 10px;">設定</a>|
+            <a id="inquiry-link" href="" style="margin-left: 10px;">
+                お問い合わせ
+            </a>
+            <br><br>
+            &copy; 2026 ATSERVER<br>
+            Comina UI
+            <br><br><br><br><br><br>
+        </p>
+    </nav>
+
+    <div id="sidebar-overlay"></div>
+    <!--e:bottom menu-->
+    <!---->
+    <!--s:main-->
+    <main class="comina-main-content">
+        <div class="atsocial-tl-container">
+            {{ $slot }}
+        </div>
     </main>
+    <!--e:main-->
 </body>
 
 </html>
