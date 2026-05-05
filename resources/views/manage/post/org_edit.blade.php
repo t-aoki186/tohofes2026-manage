@@ -2,7 +2,7 @@
     <x-slot:title>ニュース投稿</x-slot:title>
     <x-slot:pageTitle>ニュースをMarkdownで書く</x-slot:pageTitle>
 
-    <div class="pt-25 ml-5 mr-5 h-screen">
+    <div class="pt-25 ml-5 mr-5 h-screen min-w-full">
         <form action="{{ route('manage.post.organization.store') }}" method="POST">
             @csrf
             {{-- 編集時は元のIDを保持、新規時は空 --}}

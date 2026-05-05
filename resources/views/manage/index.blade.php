@@ -1,5 +1,5 @@
 <x-manage-layout>
-    <section class="pt-25 container mx-auto">
+    <section class="pt-25 w-full mx-auto">
         <div class="min-w-full flex flex-wrap gap-5 justify-center py-5">
             <div class="clock-setting-btn-item">
                 <a href="{{ route('manage.inquiry') }}" class="dash-link cursor-pointer">

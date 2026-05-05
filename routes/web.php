@@ -36,4 +36,9 @@ Route::prefix('manage')->name('manage.')->group(function () {
         Route::get('/organization/edit/{id?}', [PostController::class, 'orgEdit'])->name('organization.edit');
         Route::post('/organization/store', [PostController::class, 'orgStore'])->name('organization.store');
     });
+
+    //test
+    Route::get('/test', function () {
+        return view('manage.test.index');
+    })->name('test');
 });

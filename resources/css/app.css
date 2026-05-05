@@ -1465,6 +1465,12 @@ body.no-scroll {
         left: 82px !important;
         right: 315px !important;
     }
+
+    .comina-main-content {
+        margin-left: 92px !important; /* 左サイドバー(80px) + 隙間(20px) */
+        margin-right: 320px !important; /* 右サイドバー(300px) + 隙間(20px) */
+        width: auto !important;
+    }
 }
 
 @media (max-width: 930px) {
@@ -1472,6 +1478,12 @@ body.no-scroll {
     .atsocial-tl-tab-container {
         left: 82px !important;
         right: 0 !important;
+    }
+
+    .comina-main-content {
+        margin-left: 92px !important; /* 左サイドバー(80px) + 隙間(20px) */
+        margin-right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
+        width: auto !important;
     }
 }
 
@@ -1498,6 +1510,10 @@ body.no-scroll {
         flex-wrap: nowrap; /*横スクロールに対応*/
         margin-left: 0;
         margin-right: 0;
+    }
+
+    .comina-main-content {
+        margin: 0 !important;
     }
 }
 
@@ -2983,6 +2999,51 @@ input[type="checkbox"]:checked + .repost-menu,
 
 .dash-link {
     text-decoration: none;
+}
+
+/*アコーディオン*/
+.accordion-main summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    color: white;
+    cursor: pointer;
+}
+
+.accordion-main summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion-main summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    margin-left: 10px;
+    border-radius: 1px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    content: "";
+    transition: transform 0.3s;
+}
+
+.accordion-main[open] summary::after {
+    transform: rotate(225deg);
+}
+
+.accordion-main a {
+    transform: translateY(-10px);
+    opacity: 0;
+    margin: 0;
+    color: white;
+    transition:
+        transform 0.5s,
+        opacity 0.5s;
+}
+
+.accordion-main[open] a {
+    transform: none;
+    opacity: 1;
 }
 
 /*s:記事作成ページ*/
