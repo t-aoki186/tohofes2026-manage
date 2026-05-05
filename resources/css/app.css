@@ -988,6 +988,7 @@ body.no-scroll {
     padding: 10px 0;
     font: thin;
     font-size: 0.6rem;
+    margin-top: auto;
 }
 
 .newsbar-under-link-text a {
@@ -1383,7 +1384,8 @@ body.no-scroll {
 /* ================================= */
 
 .comina-main-content {
-    margin: 0 320px; /* 左右のサイドバー幅の300px+20pxmarginする */
+    margin-left: 320px;
+    margin-right: 10px;
     padding-top: 60px; /* 固定ヘッダーの高さ分、コンテンツの開始位置を下げる */
 }
 
@@ -1396,7 +1398,7 @@ body.no-scroll {
     justify-content: space-between;
     border: none;
     top: 0;
-    height: 30px;
+    height: 30px !important;
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(11px);
     -webkit-backdrop-filter: blur(11px);
@@ -1404,7 +1406,7 @@ body.no-scroll {
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     left: 310px;
-    right: 310px;
+    right: 10px;
     width: auto;
 }
 
@@ -1448,14 +1450,14 @@ body.no-scroll {
 @media (max-width: 1300px) {
     .comina-main-content {
         margin-left: 235px !important; /* 左サイドバー(220px) + 隙間(20px) */
-        margin-right: 320px !important; /* 右サイドバー(300px) + 隙間(20px) */
+        margin-right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
         width: auto !important;
     }
 
     .tab-nav-header,
     .atsocial-tl-tab-container {
         left: 230px !important; /* 左サイドバー(220px) + 隙間(20px) */
-        right: 315px !important; /* 右サイドバー(300px) + 隙間(20px) */
+        right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
     }
 }
 
@@ -1463,12 +1465,12 @@ body.no-scroll {
     .tab-nav-header,
     .atsocial-tl-tab-container {
         left: 82px !important;
-        right: 315px !important;
+        right: 10px !important;
     }
 
     .comina-main-content {
         margin-left: 92px !important; /* 左サイドバー(80px) + 隙間(20px) */
-        margin-right: 320px !important; /* 右サイドバー(300px) + 隙間(20px) */
+        margin-right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
         width: auto !important;
     }
 }

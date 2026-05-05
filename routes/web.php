@@ -38,7 +38,7 @@ Route::prefix('manage')->name('manage.')->group(function () {
     });
 
     //test
-    Route::post('/test', function () {
+    Route::any('/test', function () {
         return view('manage.test.index');
     })->name('test');
 });

@@ -29,6 +29,21 @@
             <li><a href="{{ route('manage.post.blog.index') }}"><i class="fa-solid fa-message"></i><span class="sidebar-text">ブログ記事</span></a></li>
             <li><a href="{{ route('manage.post.news.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">お知らせ</span></a></li>
         </ul>
+        <div class="flex flex-col">
+            <p class="newsbar-under-link-text">
+                <a href="" style="margin-right: 10px;" target="_blank">利用規約</a>|
+                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">プライバシーポリシー</a>|
+                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">Cookieのポリシー</a>|
+                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">APIについて</a>|
+                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">ヘルプ</a>|
+                <a id="inquiry-link" href="" style="margin-left: 10px;" target="_blank">
+                    お問い合わせ
+                </a>
+                <br><br>
+                &copy; 2026 ATSERVER<br>
+                Comina UI
+            </p>
+        </div>
     </aside>
 
     <!--// 小きいの //-->
@@ -45,24 +60,6 @@
         </ul>
     </aside>
     <!---->
-    <aside class="newsbar-fixed">
-        <ul class="newsbar-list">
-        </ul>
-        <hr class="main-hr">
-        <p class="newsbar-under-link-text">
-            <a href="" style="margin-right: 10px;" target="_blank">利用規約</a>|
-            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">プライバシーポリシー</a>|
-            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">Cookieのポリシー</a>|
-            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">APIについて</a>|
-            <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">ヘルプ</a>|
-            <a id="inquiry-link" href="" style="margin-left: 10px;" target="_blank">
-                お問い合わせ
-            </a>
-            <br><br>
-            &copy; 2026 ATSERVER<br>
-            Comina UI
-        </p>
-    </aside>
     <!--e:sidebar-->
     <!---->
     <!--s:header-->

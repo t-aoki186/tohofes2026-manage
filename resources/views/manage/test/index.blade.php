@@ -12,8 +12,8 @@
         <!---->
         <!--s:タイトル/記事ID-->
         <div class="flex gap-2">
-            <input type="text" name="id" value="" class="bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3" placeholder="記事ID: [例:1]">
-            <input type="text" name="title" value="" class="w-full bg-[#2c2d30] text-white placeholder:text-gray-500 border border-gray-500 rounded-xl p-4 text-xl" placeholder="タイトルを入力...">
+            <input type="text" name="id" value="" class="bg-[#2c2d30] text-white rounded-xl p-3 placeholder:text-(--main-text-color) placeholder:text-sm" placeholder="記事ID: [例:1]">
+            <input type="text" name="title" value="" class="w-full bg-[#2c2d30] text-white placeholder:text-(--main-text-color) placeholder:text-sm rounded-xl p-4 text-xl" placeholder="タイトルを入力...">
         </div>
         <!--e:タイトル/記事ID-->
         <!---->
@@ -81,7 +81,7 @@
             </div>
             <!-- プレビュー面 -->
             <div id="previewPane" class="pane">
-                <div id="preview" class="flex-1 p-5 bg-[#2c2d30] dash-md-preview rounded-xl text-white border border-gray-500 overflow-y-auto prose prose-invert max-w-none">
+                <div id="preview" class="flex-1 p-5 bg-[#2c2d30] dash-md-preview rounded-xl text-white overflow-y-auto prose prose-invert max-w-none">
                 </div>
             </div>
         </div>
@@ -101,12 +101,12 @@
         .editor-container {
             display: flex;
             position: relative;
+            gap: 20px;
         }
 
         .pane {
             flex: 1;
             box-sizing: border-box;
-            padding: 15px;
         }
 
         /* 編集エリア */
@@ -128,7 +128,7 @@
         }
 
         /* モバイル表示のスタイル (767px以下) */
-        @media (max-width: 1500px) {
+        @media (max-width: 1200px) {
             .toggle-btn {
                 display: block;
             }
