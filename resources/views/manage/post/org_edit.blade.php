@@ -39,7 +39,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="text-gray-400 text-xs ml-2">開催日 (例: 1, 2)</label>
-                    <input type="text" name="orgDate" value="{{ $target['orgDate'] }}" class="w-full bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3" placeholder="1, 2">
+                    <input type="text" name="orgDate" value="{{ $target['orgDate'] ?? '' }}" class="w-full bg-[#2c2d30] text-white border border-gray-600 rounded-xl p-3" placeholder="1, 2">
                 </div>
 
                 <div class="mb-6 bg-[#1e1f22] p-4 rounded-xl border border-gray-700">

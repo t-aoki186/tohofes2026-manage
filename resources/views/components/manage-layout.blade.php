@@ -16,30 +16,18 @@
 </head>
 
 <body>
-    <!--s:header-->
-    <div class="tab-nav-header">
-        <div class="img-hover-nav">
-            <a href="javascript:history.back();" class="tab-nav-back-btn" aria-label="閉じる">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
-        </div>
-        <p class="nav-menu-title">タイトル</p>
-    </div>
-    </header>
-    <!--e:header-->
-    <!---->
     <!--s:sidebar-->
     <aside class="sidebar-fixed">
         <!--// 大きいの //-->
         <ul class="sidebar-list">
             <!--liにはclassを書かないので、sidebar-list liで指定-->
-            <li><a href="" class="sidebar-logo"><img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" class="sidebar-logo-img"></a></li>
+            <li><a href="{{ route('manage.index') }}" class="sidebar-logo"><img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" class="sidebar-logo-img"></a></li>
             <hr class="main-hr" style="margin: 0;">
             <li><a href="{{ route('manage.index') }}"><i class="fas fa-home"></i><span class="sidebar-text">ホーム</span></a></li>
-            <li><a href="{{ route('manage.inquiry') }}"><i class="fa-solid fa-magnifying-glass"></i><span class="sidebar-text">お問い合わせ確認</span></a></li>
+            <li><a href="{{ route('manage.inquiry') }}"><i class="fa-solid fa-envelope"></i><span class="sidebar-text">お問い合わせ確認</span></a></li>
             <li><a href="{{ route('manage.post.organization.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">参加団体記事</span></a></li>
             <li><a href="{{ route('manage.post.blog.index') }}"><i class="fa-solid fa-message"></i><span class="sidebar-text">ブログ記事</span></a></li>
-            <li><a href="{{ route('manage.post.news.index') }}"><i class="fa-solid fa-user-group"></i><span class="sidebar-text">お知らせ</span></a></li>
+            <li><a href="{{ route('manage.post.news.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">お知らせ</span></a></li>
         </ul>
     </aside>
 
@@ -47,20 +35,13 @@
     <aside class="sidebar-fixed-mini">
         <ul class="sidebar-list-mini">
             <!--liにはclassを書かないので、sidebar-list liで指定-->
-            <li><a href="" title="ホーム" class="sidebar-logo"><img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" class="sidebar-logo-img"></a></li>
+            <li><a href="{{ route('manage.index') }}" title="ホーム" class="sidebar-logo"><img src="https://pic.atserver186.jp/img/atserver/root/ats_logo.webp" class="sidebar-logo-img"></a></li>
             <hr class="main-hr" style="margin: 0;">
-            <li><a href="" title="ホーム"><i class="fas fa-home"></i></a></li>
-            <li><a href="" title="検索"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-            <li><a href="" title="ブログ"><i class="fa-solid fa-newspaper"></i></a></li>
-            <li><a href="" title="つぶやき"><i class="fa-solid fa-message"></i></a></li>
-            <li><a href="" title="コミュニティー"><i class="fa-solid fa-user-group"></i></a></li>
-            <li><a href="" title="セーブ"><i class="fa-solid fa-bookmark"></i></a></li>
-            <hr class="main-hr" style="margin: 0;">
-            <li><a href="" title="新規投稿" class="sidebar-post-btn-mini"><i class="fas fa-plus"></i></a></li>
-            <li><a href="" title="通知"><i class="fas fa-bell"></i></a></li>
-            <li><a href="" title="ダッシュボード"><i class="fa-solid fa-gauge-simple-high"></i></a></li>
-            <li><a href="" title="ドライブ"><i class="fa-solid fa-hard-drive"></i></a></li>
-            <li><a href="" title="設定"><i class="fa-solid fa-gear"></i></a></li>
+            <li><a href="{{ route('manage.index') }}" title="ホーム"><i class="fas fa-home"></i></a></li>
+            <li><a href="{{ route('manage.inquiry') }}" title="お問い合わせ確認"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="{{ route('manage.post.organization.index') }}" title="参加団体記事"><i class="fa-solid fa-newspaper"></i></a></li>
+            <li><a href="{{ route('manage.post.blog.index') }}" title="ブログ記事"><i class="fa-solid fa-message"></i></a></li>
+            <li><a href="{{ route('manage.post.news.index') }}" title="お知らせ"><i class="fa-solid fa-newspaper"></i></a></li>
         </ul>
     </aside>
     <!---->
@@ -83,6 +64,18 @@
         </p>
     </aside>
     <!--e:sidebar-->
+    <!---->
+    <!--s:header-->
+    <div class="tab-nav-header">
+        <div class="img-hover-nav">
+            <a href="javascript:history.back();" class="tab-nav-back-btn" aria-label="閉じる">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+        <p class="nav-menu-title">タイトル</p>
+    </div>
+    </header>
+    <!--e:header-->
     <!---->
     <!--s:bottom menu-->
     <div class="bottom-nav">
