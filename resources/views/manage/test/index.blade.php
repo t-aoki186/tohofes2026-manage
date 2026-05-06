@@ -4,21 +4,19 @@
 
 
     <form action="" method="POST" class="flex flex-col gap-4 edit-form">
-
+        <!---->
         <input type="hidden" name="old_id" value="">
         <input type="hidden" name="type" value="organization">
         <input type="hidden" name="heading" value="">
-
         <!---->
         <!--s:タイトル/記事ID-->
-        <div class="flex gap-2">
+        <div class="editp-top">
             <input type="text" name="id" value="" class="bg-[#2c2d30] text-white rounded-xl p-3 placeholder:text-(--main-text-color) placeholder:text-sm" placeholder="記事ID: [例:1]">
             <input type="text" name="title" value="" class="w-full bg-[#2c2d30] text-white placeholder:text-(--main-text-color) placeholder:text-sm rounded-xl p-4 text-xl" placeholder="タイトルを入力...">
         </div>
         <!--e:タイトル/記事ID-->
         <!---->
         <!--s:アコーディオン-->
-        <br>
         <div class="flex flex-col">
             <details class="accordion-main mb-4 min-w-full border border-[#2c2d30] p-4 rounded-xl">
                 <summary class="font-bold text-(--main-text-color)">詳細設定(必須)</summary>
@@ -30,10 +28,8 @@
 
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1">
-                        <label class="text-gray-400 text-xs ml-2">カテゴリー</label>
-                        <input type="text" name="category" value=""
-                            class="bg-[#2c2d30] text-white rounded-xl p-3"
-                            placeholder="例: グッズ販売, 展示">
+                        <label class="text-gray-400 text-xs ml-2">開催日</label>
+                        <input type="text" name="orgDate" value="" class="w-full bg-[#2c2d30] text-white rounded-xl p-3" placeholder="例: 1, 2">
                     </div>
                     <div class="flex flex-col gap-1">
                         <label class="text-gray-400 text-xs ml-2">場所（ブース番号など）</label>
@@ -42,9 +38,11 @@
                             placeholder="例: 3-G">
                     </div>
                 </div>
-                <div class="mb-4">
-                    <label class="text-gray-400 text-xs ml-2">開催日</label>
-                    <input type="text" name="orgDate" value="" class="w-full bg-[#2c2d30] text-white rounded-xl p-3" placeholder="例: 1, 2">
+                <div class="flex flex-col mb-4">
+                    <label class="text-gray-400 text-xs ml-2">カテゴリー(カンマ区切り)</label>
+                    <input type="text" name="category" value=""
+                        class="bg-[#2c2d30] text-white rounded-xl p-3"
+                        placeholder="例: グッズ販売, 展示">
                 </div>
                 <!---->
                 <!--s:タイムテーブル-->
@@ -65,7 +63,6 @@
                 <!--e:タイムテーブル-->
             </details>
         </div>
-        <br>
         <!--e:アコーディオン-->
         <!---->
         <!--s:エディター,プレビュー切り替え-->
@@ -101,4 +98,17 @@
         <!--e:下部ボタン-->
     </form>
 
+
+    <style>
+        .editp-top {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .editp-top {
+                flex-direction: column;
+            }
+        }
+    </style>
 </x-manage-layout>
