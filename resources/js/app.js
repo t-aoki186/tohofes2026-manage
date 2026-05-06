@@ -22,7 +22,7 @@ if (input && preview && typeof marked !== "undefined") {
     input.addEventListener("input", updatePreview);
 }
 
-// 予定を追加するスクリプト
+/*s: 記事投稿ページでタイムテーブル用データを追加する用*/
 const container = document.getElementById("schedule-container");
 const addButton = document.getElementById("add-schedule");
 
@@ -39,3 +39,30 @@ if (container && addButton) {
         container.insertAdjacentHTML("beforeend", html);
     });
 }
+/*e: 記事投稿ページでタイムテーブル用データを追加する用*/
+//
+/*s: 記事投稿ページ テキスト入力エリアとMDプレビューエリアの切り替え用*/
+const editor = document.getElementById("markdown-input");
+//const preview = document.getElementById("preview");
+const toggleBtn = document.getElementById("toggleBtn");
+const editPane = document.getElementById("editPane");
+const previewPane = document.getElementById("previewPane");
+
+// 入力に合わせてプレビューを更新
+editor.addEventListener("input", () => {
+    preview.innerHTML = marked.parse(editor.value);
+});
+
+// モバイル用切り替えロジック
+toggleBtn.addEventListener("click", () => {
+    const isEditing = editPane.classList.contains("active");
+
+    if (isEditing) {
+        editPane.classList.remove("active");
+        previewPane.classList.add("active");
+    } else {
+        editPane.classList.add("active");
+        previewPane.classList.remove("active");
+    }
+});
+/*e: 記事投稿ページ テキスト入力エリアとMDプレビューエリアの切り替え用*/
