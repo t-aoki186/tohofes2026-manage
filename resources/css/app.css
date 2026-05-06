@@ -972,8 +972,17 @@ body.no-scroll {
     height: 100%;
     box-sizing: border-box;
 }
+.editp-top {
+    display: flex;
+    gap: 20px;
+}
 
-/* モバイル表示のスタイル (767px以下) */
+@media (max-width: 640px) {
+    .editp-top {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 1200px) {
     .toggle-btn {
         display: block;

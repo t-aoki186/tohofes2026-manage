@@ -74,6 +74,7 @@
         </label>
         <!--e:エディター,プレビュー切り替え-->
         <!---->
+        <!--s: エディター/プレビュー-->
         <div class="editor-container h-150">
             <!-- 編集面 -->
             <div id="editPane" class="edit-pane active">
@@ -85,7 +86,7 @@
                 </div>
             </div>
         </div>
-
+        <!--e: エディター/プレビュー-->
         <!---->
         <!--s:下部ボタン-->
         <div class="mt-6 flex justify-between items-center">
@@ -97,18 +98,4 @@
         <br>
         <!--e:下部ボタン-->
     </form>
-
-
-    <style>
-        .editp-top {
-            display: flex;
-            gap: 20px;
-        }
-
-        @media (max-width: 640px) {
-            .editp-top {
-                flex-direction: column;
-            }
-        }
-    </style>
 </x-manage-layout>
