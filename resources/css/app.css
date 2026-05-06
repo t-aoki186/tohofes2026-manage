@@ -351,14 +351,14 @@ body.no-scroll {
     }
 
     .sidebar-fixed-mini i {
-        color: #ffffff;
+        color: var(--main-text-color);
         font-size: 1rem;
         text-align: center;
     }
 
     .sidebar-post-btn-mini i,
     .sidebar-post-btn-mini span {
-        color: #ffffff !important;
+        color: var(--main-text-color) !important;
     }
 
     /*--サイドバー(ミニミニ)のホバー等--*/
@@ -524,14 +524,12 @@ body.no-scroll {
 /* ================================= */
 
 .comina-main-content {
-    margin-left: 320px;
+    margin-left: 310px;
     margin-right: 10px;
     padding-top: 60px; /* 固定ヘッダーの高さ分、コンテンツの開始位置を下げる */
 }
 
-.tab-nav-header,
-.atsocial-post-tab-container,
-.atsocial-tl-tab-container {
+.tab-nav-header {
     position: fixed;
     display: flex;
     align-items: center;
@@ -550,108 +548,38 @@ body.no-scroll {
     width: auto;
 }
 
-.atsocial-post-tab ul,
-.atsocial-tl-tab ul {
-    display: flex;
-    position: fixed;
-}
-
-.atsocial-post-tab li,
-.atsocial-tl-tab li {
-    list-style: none;
-}
-
-.atsocial-post-tab a,
-.atsocial-tl-tab a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    margin-right: 35px;
-}
-
-.atsocial-tl-tab-settings-btn {
-    margin-left: auto;
-    margin-right: 0;
-}
-
-/*--アクティブタブのスタイル--*/
-.atsocial-tl-tab ul li.active a {
-    color: #008cff;
-    border-bottom-color: #008cff;
-    font-weight: bold;
-}
-
-.atsocial-tl-tab ul li:not(.active) a:hover {
-    color: #ccc;
-    background-color: #222;
-}
-
 /*タブのレスポンしぶデザイン*/
 @media (max-width: 1300px) {
     .comina-main-content {
-        margin-left: 235px !important; /* 左サイドバー(220px) + 隙間(20px) */
+        margin-left: 230px !important; /* 左サイドバー(220px) + 隙間(20px) */
         margin-right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
         width: auto !important;
     }
 
-    .tab-nav-header,
-    .atsocial-tl-tab-container {
+    .tab-nav-header {
         left: 230px !important; /* 左サイドバー(220px) + 隙間(20px) */
         right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
     }
 }
 
 @media (max-width: 1080px) {
-    .tab-nav-header,
-    .atsocial-tl-tab-container {
+    .tab-nav-header {
         left: 82px !important;
         right: 10px !important;
     }
 
     .comina-main-content {
-        margin-left: 92px !important; /* 左サイドバー(80px) + 隙間(20px) */
-        margin-right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
-        width: auto !important;
-    }
-}
-
-@media (max-width: 930px) {
-    .tab-nav-header,
-    .atsocial-tl-tab-container {
-        left: 82px !important;
-        right: 0 !important;
-    }
-
-    .comina-main-content {
-        margin-left: 92px !important; /* 左サイドバー(80px) + 隙間(20px) */
+        margin-left: 90px !important; /* 左サイドバー(80px) + 隙間(20px) */
         margin-right: 10px !important; /* 右サイドバー(300px) + 隙間(20px) */
         width: auto !important;
     }
 }
 
 @media (max-width: 555px) {
-    .tab-nav-header,
-    .atsocial-tl-tab-container {
+    .tab-nav-header {
         left: 0 !important;
         padding: 15px 0;
         margin: 0;
-    }
-    .atsocial-post-tab a,
-    .atsocial-tl-tab a {
-        display: block;
-        text-decoration: none;
-        color: white;
-        margin-right: 5px;
-        font-size: 0.9rem;
-    }
-
-    .atsocial-post-tab ul,
-    .atsocial-tl-tab ul {
-        display: flex;
-        gap: 0.6rem;
-        flex-wrap: nowrap; /*横スクロールに対応*/
-        margin-left: 0;
-        margin-right: 0;
     }
 
     .comina-main-content {
@@ -816,10 +744,17 @@ body.no-scroll {
     /* max-width を削除（フレックスで制御） */
 }
 
-/*===============================*/
-/*おしり...じゃなくておわり*/
+/*======================*/
+/*--- end: Comina UI ---*/
+/*======================*/
+/**/
+/**/
+/*======================*/
+/*--- start: tf26 ---*/
+/*======================*/
 
-.clock-setting-btn-item {
+/**/
+.dash-top-pagelist {
     background-color: white;
     text-decoration: none;
     width: 48%;
@@ -832,7 +767,7 @@ body.no-scroll {
     text-align: center;
 }
 
-.clock-setting-btn-item:hover {
+.dash-top-pagelist:hover {
     transform: scale(1.03);
     opacity: 0.9;
     background-color: #9c9a9a;
@@ -887,7 +822,9 @@ body.no-scroll {
     opacity: 1;
 }
 
-/*s:記事作成ページ*/
+/*--- s:記事作成ページ ---*/
+
+/*s: mdプレビュー*/
 .dash-md-preview h1,
 .dash-md-preview h2 {
     margin-bottom: 1.1rem;
@@ -1005,3 +942,4 @@ body.no-scroll {
     border-left: 3px solid var(--color-gray-400);
     display: block;
 }
+/*e: mdプレビュー*/
