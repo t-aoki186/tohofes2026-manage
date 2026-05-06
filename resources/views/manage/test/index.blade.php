@@ -3,7 +3,7 @@
     <x-slot:pageTitle>ニュースをMarkdownで書く</x-slot:pageTitle>
 
 
-    <form action="" method="POST">
+    <form action="" method="POST" class="flex flex-col gap-4">
 
         <input type="hidden" name="old_id" value="">
         <input type="hidden" name="type" value="organization">
@@ -93,11 +93,12 @@
         <!---->
         <!--s:下部ボタン-->
         <div class="mt-6 flex justify-between items-center">
-            <a href="" class="text-gray-400 hover:text-white transition">← 一覧に戻る</a>
-            <button type="submit" class="bg-gray-600 text-white px-8 py-3 rounded-lg font-bold cursor-pointer hover:bg-gray-700 transition shadow-lg">
+            <a href="" class="follow-btn">← 一覧に戻る</a>
+            <button type="submit" class="follow-btn">
                 JSONを更新して公開
             </button>
         </div>
+        <br>
         <!--e:下部ボタン-->
     </form>
 
@@ -145,6 +146,7 @@
                 height: 100%;
                 display: none;
                 padding: 0 !important;
+                margin: 0 !important;
             }
 
             /* activeクラスがついている方だけ表示 */
