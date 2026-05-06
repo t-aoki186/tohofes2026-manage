@@ -1,6 +1,6 @@
 <x-manage-layout>
-    <x-slot:title>ニュース投稿</x-slot:title>
-    <x-slot:pageTitle>ニュースをMarkdownで書く</x-slot:pageTitle>
+    <x-slot:title>ブログ投稿</x-slot:title>
+    <x-slot:pageTitle>ブログをMarkdownで書く</x-slot:pageTitle>
 
 
     <form action="{{ route('manage.post.blog.store') }}" method="POST" class="flex flex-col gap-4 edit-form">
