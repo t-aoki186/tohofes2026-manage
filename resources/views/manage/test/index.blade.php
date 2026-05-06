@@ -3,7 +3,7 @@
     <x-slot:pageTitle>ニュースをMarkdownで書く</x-slot:pageTitle>
 
 
-    <form action="" method="POST" class="flex flex-col gap-4">
+    <form action="" method="POST" class="flex flex-col gap-4 edit-form">
 
         <input type="hidden" name="old_id" value="">
         <input type="hidden" name="type" value="organization">
@@ -48,8 +48,7 @@
                 </div>
                 <!---->
                 <!--s:タイムテーブル-->
-                <br>
-                <hr class="text-(--main-text-color)"><br>
+                <hr class="main-hr">
                 <div class="mb-6">
                     <label class="text-gray-400 text-xs ml-2">開催日</label>
                     <div id="schedule-container" class="space-y-3">
@@ -80,11 +79,11 @@
         <!---->
         <div class="editor-container h-150">
             <!-- 編集面 -->
-            <div id="editPane" class="pane active">
+            <div id="editPane" class="edit-pane active">
                 <textarea name="body" id="markdown-input" class="flex-1 p-5 bg-[#2c2d30] rounded-xl text-white placeholder:text-gray-500 font-mono resize-none focus:outline-none" placeholder="Markdownで本文を入力..."></textarea>
             </div>
             <!-- プレビュー面 -->
-            <div id="previewPane" class="pane">
+            <div id="previewPane" class="edit-pane">
                 <div id="preview" class="flex-1 p-5 bg-[#2c2d30] dash-md-preview rounded-xl text-white overflow-y-auto prose prose-invert max-w-none">
                 </div>
             </div>
@@ -109,7 +108,7 @@
             gap: 20px;
         }
 
-        .pane {
+        .edit-pane {
             flex: 1;
             box-sizing: border-box;
         }
@@ -138,7 +137,7 @@
                 display: block;
             }
 
-            .pane {
+            .edit-pane {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -150,7 +149,7 @@
             }
 
             /* activeクラスがついている方だけ表示 */
-            .pane.active {
+            .edit-pane.active {
                 display: block;
             }
 
@@ -165,6 +164,12 @@
                 width: 80px;
                 height: 40px;
                 cursor: pointer;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .edit-form {
+                margin: 10px;
             }
         }
 

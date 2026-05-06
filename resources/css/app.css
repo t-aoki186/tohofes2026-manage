@@ -39,7 +39,6 @@ ATSocial Beta | Stylesheet File
 }
 
 * {
-    margin: 0;
     /*タップハイライトを非表示にする。↓*/
     outline: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
