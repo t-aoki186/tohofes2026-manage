@@ -30,10 +30,10 @@ if (container && addButton) {
     addButton.addEventListener("click", () => {
         const index = container.querySelectorAll(".schedule-row").length;
         const html = `
-            <div class="flex gap-2 schedule-row">
-                <input type="text" name="schedule[${index}][day]" placeholder="日" class="w-16 bg-[#2c2d30] text-white border border-gray-600 rounded-lg p-2 text-center">
-                <input type="text" name="schedule[${index}][time]" placeholder="10:30 ~ 11:30" class="flex-1 bg-[#2c2d30] text-white border border-gray-600 rounded-lg p-2">
-                <button type="button" onclick="this.parentElement.remove()" class="text-red-500 px-2">✕</button>
+            <div class="flex gap-2 schedule-row mt-4">
+                <input type="text" name="schedule[${index}][day]" placeholder="日" class="w-16 bg-[#2c2d30] text-white rounded-lg p-2 text-center">
+                <input type="text" name="schedule[${index}][time]" placeholder="10:30 ~ 11:30" class="flex-1 bg-[#2c2d30] text-white rounded-lg p-2">
+                <button type="button" onclick="this.parentElement.remove()" class="cursor-pointer px-2 mt-4"><i class="fa-solid fa-xmark text-red-500"></i></button>
             </div>
         `;
         container.insertAdjacentHTML("beforeend", html);
