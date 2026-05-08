@@ -1,9 +1,9 @@
 <x-manage-layout>
     <x-slot:title>ニュース一覧</x-slot:title>
-    <section class="pt-25 container mx-auto">
+    <section class="mx-auto post-index">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-xl font-bold text-white">記事一覧</h2>
-            <a href="{{ route('manage.post.news.edit') }}" class="bg-green-600 text-white px-4 py-2 rounded">＋ 新規作成</a>
+            <a href="{{ route('manage.post.news.edit') }}" class="follow-btn"><i class="fa-solid fa-plus mr-1 text-sm"></i>新規作成</a>
         </div>
 
         <div class="bg-white rounded-lg shadow overflow-hidden">

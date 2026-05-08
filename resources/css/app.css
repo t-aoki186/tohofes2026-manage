@@ -1019,7 +1019,8 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
-    .edit-form {
+    .edit-form,
+    .post-index {
         margin: 10px;
     }
 }
