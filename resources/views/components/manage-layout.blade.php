@@ -29,17 +29,9 @@
             <li><a href="{{ route('manage.post.blog.index') }}"><i class="fa-solid fa-message"></i><span class="sidebar-text">ブログ記事</span></a></li>
             <li><a href="{{ route('manage.post.news.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">お知らせ</span></a></li>
         </ul>
+        <hr class="main-hr">
         <div class="flex flex-col">
             <p class="newsbar-under-link-text">
-                <a href="" style="margin-right: 10px;" target="_blank">利用規約</a>|
-                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">プライバシーポリシー</a>|
-                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">Cookieのポリシー</a>|
-                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">APIについて</a>|
-                <a href="" style="margin-right: 10px; margin-left: 10px;" target="_blank">ヘルプ</a>|
-                <a id="inquiry-link" href="" style="margin-left: 10px;" target="_blank">
-                    お問い合わせ
-                </a>
-                <br><br>
                 &copy; 2026 ATSERVER<br>
                 Comina UI
             </p>
@@ -77,11 +69,11 @@
     <!--s:bottom menu-->
     <div class="bottom-nav">
         &nbsp;
-        <a href=""><i class="fas fa-home"></i></a>
-        <a href=""><i class="fas fa-search"></i></a>
-        <a href=""><i class="fas fa-home"></i></a>
-        <a href=""><i class="fas fa-home"></i></a>
-        <a id="sidebar_btn"><i class="fas fa-bars"></i></a>
+        <a href=" {{ route('manage.index') }} "><i class="fas fa-home"></i></a>
+        <a href=" {{ route('manage.inquiry') }} "><i class="fa-solid fa-envelope"></i></a>
+        <a href=" {{ route('manage.post.organization.index') }} "><i class="fa-solid fa-newspaper"></i></a>
+        <a href=" {{ route('manage.post.blog.index') }} "><i class="fa-solid fa-message"></i></a>
+        <a href=" {{ route('manage.post.news.index') }} "><i class="fa-solid fa-newspaper"></i></a>
         &nbsp;
     </div>
 
