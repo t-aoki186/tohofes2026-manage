@@ -1,5 +1,6 @@
 <x-manage-layout>
-    <section class="pt-25 container mx-auto">
-        <p class="text-gray-700 text-2xl">お問い合わせ確認</p>
+    <x-slot:title>お問い合わせ一覧</x-slot:title>
+    <section class="mx-auto">
+        <p class="text-white text-2xl">お問い合わせ確認</p>
     </section>
 </x-manage-layout>

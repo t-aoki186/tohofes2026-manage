@@ -1,5 +1,5 @@
 <x-manage-layout>
-    <x-slot:title>ニュース一覧</x-slot:title>
+    <x-slot:title>参加団体一覧</x-slot:title>
     <section class="post-index mx-auto">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-xl font-bold text-white">記事一覧</h2>
