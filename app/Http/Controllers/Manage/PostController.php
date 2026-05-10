@@ -23,7 +23,8 @@ class PostController extends Controller
         $list = $this->getJsonData($filename);
         //
         //基本項目(お知らせ/ブログ/参加団体共通
-        $baseData = $request->only(['id', 'title', 'heading', 'body', 'thumbnail', 'type', 'date']);
+        $baseData = $request->only(['id', 'title', 'heading', 'body', 'thumbnail', 'type']);
+        $baseData['date'] = $request->input('published_at');
         //
         //参加団体専用の項目
         if ($filename === 'organization') {
@@ -57,6 +58,7 @@ class PostController extends Controller
 
     private function defaultData($type)
     {
+        $now = now();
         return [
             'id' => '',
             'title' => '',
@@ -64,7 +66,8 @@ class PostController extends Controller
             'body' => '',
             'thumbnail' => 'https://pic.atserver186.jp/img/tohofes/dev-test/sample-img/news-v4.webp',
             'type' => $type,
-            'date' => now()->toIso8601String(),
+            'date' => $now->toIso8601String(),
+            'published_at' => $now->format('Y-m-d\TH:i'),
             'category' => '',
             'location' => '',
             'orgDate' => '',
@@ -82,6 +85,11 @@ class PostController extends Controller
     public function newsEdit($id = null)
     {
         $target = collect($this->getJsonData('news'))->firstWhere('id', $id) ?: $this->defaultData('news');
+        if (isset($target['date']) && !is_null($target['date'])) {
+            $target['published_at'] = \Carbon\Carbon::parse($target['date'])->format('Y-m-d\TH:i');
+        } elseif (!isset($target['published_at'])) {
+            $target['published_at'] = now()->format('Y-m-d\TH:i');
+        }
         return view('manage.post.news_edit', compact('target', 'id'));
     }
 
@@ -101,6 +109,11 @@ class PostController extends Controller
     public function blogEdit($id = null)
     {
         $target = collect($this->getJsonData('blog'))->firstWhere('id', $id) ?: $this->defaultData('blog');
+        if (isset($target['date']) && !is_null($target['date'])) {
+            $target['published_at'] = \Carbon\Carbon::parse($target['date'])->format('Y-m-d\TH:i');
+        } elseif (!isset($target['published_at'])) {
+            $target['published_at'] = now()->format('Y-m-d\TH:i');
+        }
         return view('manage.post.blog_edit', compact('target', 'id'));
     }
 
