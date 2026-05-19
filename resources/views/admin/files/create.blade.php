@@ -8,7 +8,7 @@
                     @csrf
 
                     <div class="mb-3 flex flex-col">
-                        <input type="file" class="form-control @error('file') is-invalid @enderror text-white" name="file" required>
+                        <input type="file" class="form-control @error('file') is-invalid @enderror follow-btn" name="file" required>
                         @error('file')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

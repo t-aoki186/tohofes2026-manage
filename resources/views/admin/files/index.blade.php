@@ -7,7 +7,7 @@
                 @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
-
+                <a href="{{ route('admin.files.create') }}" class="follow-btn">ファイルをアップロード</a>
                 <table class="table w-full">
                     <thead>
                         <tr>
