@@ -42,3 +42,10 @@ Route::prefix('manage')->name('manage.')->group(function () {
         return view('manage.test.index');
     })->name('test');
 });
+
+use App\Http\Controllers\Manage\FileUploadController;
+
+Route::prefix('manage')->name('admin.')->group(function () {
+    // ファイル管理ルート
+    Route::resource('files', FileUploadController::class);
+});

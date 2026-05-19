@@ -32,3 +32,12 @@ Route::get('/json/organization.json', function () {
     $json = Storage::disk('public')->get('json/organization.json');
     return response($json, 200)->header('Content-Type', 'application/json');
 });
+
+use App\Http\Controllers\Api\FileController;
+
+// Cloudflare Accessで公開するエンドポイント
+Route::prefix('files')->group(function () {
+    Route::get('/', [FileController::class, 'index']);
+    Route::get('/{filename}', [FileController::class, 'show']);
+    Route::get('/{filename}/info', [FileController::class, 'info']);
+});

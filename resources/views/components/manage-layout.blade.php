@@ -28,6 +28,7 @@
             <li><a href="{{ route('manage.post.organization.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">参加団体記事</span></a></li>
             <li><a href="{{ route('manage.post.blog.index') }}"><i class="fa-solid fa-message"></i><span class="sidebar-text">ブログ記事</span></a></li>
             <li><a href="{{ route('manage.post.news.index') }}"><i class="fa-solid fa-newspaper"></i><span class="sidebar-text">お知らせ</span></a></li>
+            <li><a href="{{ route('admin.files.index') }}"><i class="fa-solid fa-file"></i><span class="sidebar-text">ファイルアップロード</span></a></li>
         </ul>
         <hr class="main-hr">
         <div class="flex flex-col">

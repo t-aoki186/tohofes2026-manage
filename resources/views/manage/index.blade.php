@@ -21,6 +21,11 @@
                     <i class="fa-solid fa-circle-plus"></i>お知らせ投稿
                 </a>
             </div>
+            <div class="dash-top-pagelist">
+                <a href="{{ route('admin.files.index') }}" class="dash-link cursor-pointer">
+                    <i class="fa-solid fa-file"></i>ファイルアップロード
+                </a>
+            </div>
         </div>
     </section>
 </x-manage-layout>
