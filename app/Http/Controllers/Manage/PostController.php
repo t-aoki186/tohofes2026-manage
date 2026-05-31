@@ -28,7 +28,7 @@ class PostController extends Controller
         //
         //参加団体専用の項目
         if ($filename === 'organization') {
-            $extraData = $request->only(['category', 'location', 'twitter_id', 'schedule']);
+            $extraData = $request->only(['category', 'location', 'twitter_id', 'schedule', 'top_img']);
             $newData = array_merge($baseData, $extraData);
         } else {
             $newData = $baseData;
@@ -65,6 +65,7 @@ class PostController extends Controller
             'heading' => '',
             'body' => '',
             'thumbnail' => 'https://pic.atserver186.jp/img/tohofes/dev-test/sample-img/news-v4.webp',
+            'top_img' => '',
             'type' => $type,
             'date' => $now->toIso8601String(),
             'published_at' => $now->format('Y-m-d\TH:i'),

@@ -28,6 +28,11 @@
                     <label class="text-gray-400 text-xs ml-2 mt-4">サムネイルURL</label>
                     <input type="text" name="thumbnail" value="{{ $target['thumbnail'] }}" class="bg-[#2c2d30] text-white rounded-xl p-3">
                 </div>
+                <!--top_img -->
+                <div class="flex flex-col gap-1">
+                    <label class="text-gray-400 text-xs ml-2 mt-4">トップ画像URL</label>
+                    <input type="text" name="top_img" value="{{ $target['top_img'] ?? '' }}" class="bg-[#2c2d30] text-white rounded-xl p-3">
+                </div>
                 <!---->
                 <div class="mb-4 grid grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1">
